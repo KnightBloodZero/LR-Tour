@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Registrarse</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+<body>
+        <div class ="container">
+        <div class="jumbotron" style="font-style:italic; background-color: aquamarine">
+           <h1>LR TOUR</h1>
+            <p>Informaci&oacute;n de lugares turisticos rapida, variada y confiable</p>          
+        </div>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href={% url 'Portada' %}>LR TOUR</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="#">Administrar Lugares</a></li>
+                <li><a href="#">Administrar Reportes</a></li>
+                <li><a href="#">Administrar Sugerencias</a></li>
+                <li><a href="#">Administrar Usuario</a></li>
+            </ul>
+        </div>
+    </nav>
+ </div>
+    <div class="container">
+    <form action="." method="post">
+    <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nombre del Lugar</th>
+        <th>Region</th>
+        <th>Ciudad</th>
+        <th>Comuna</th>
+        <th>Imagen del Lugar</th>
+        <th>Razon</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% csrf_token %}
+        {% for SugerenciaLugar in ListaDeSugerencias %}
+            <tr>
+                <td>{{ SugerenciaLugar.nombreDelLugar }}</td>
+                <td>{{ SugerenciaLugar.region }}</td>
+                <td>{{ SugerenciaLugar.ciudad }}</td>
+                <td>{{ SugerenciaLugar.comuna }}</td>
+                <td><img src={{SugerenciaLugar.imagenDelLugar}} class="img-rounded"></td>
+                <td>{{ SugerenciaLugar.razonDeVisita }}</td>
+                <td><button type="submit" class="btn btn-primary" value="{{SugerenciaLugar.id}}" name="botonDeSugerencia">Mas Info</button></td>
+            </tr>
+        {% endfor %}
+
+    </tbody>
+  </table> 
+</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Registrarse</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
+    </style>
+</head>
+<body>
+    <div class ="container">
+        <div class="jumbotron" style="font-style:italic; background-color: aquamarine">
+           <h1>LR TOUR</h1>
+            <p>Informaci&oacute;n de lugares turisticos rapida, variada y confiable</p>          
+        </div>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand active" href={% url 'Portada' %}>LR TOUR</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="#">&iquest;Quienes Somos?</a></li>
+                <li><a href="#">&iquest;Como empezar?</a></li>
+                <li><a href={% url 'registrarse' %}>Registrese</a></li>
+                <li><a href={% url 'login' %}>Login</a></li>
+            </ul>
+        </div>
+    </nav>
+ </div>
+    <form action="." method="post">
+    {% csrf_token %}
+    <div class="container">
+    <div class="form-group">
+        <label>Nombre de Usuario:</label>
+   {{form.nombre}}
+    </div>
+    <div class="form-group">
+        <label>Contrase&ntildea:</label>
+   {{form.contra}}
+    </div>
+    <button type="submit" class="btn-primary" value="Submit">Entrar</button>
+ </div>
+  </form>
+
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Registrarse</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
+    </style>
+</head>
+<body>
+    <div class ="container">
+        <div class="jumbotron" style="font-style:italic; background-color: aquamarine">
+           <h1>LR TOUR</h1>
+            <p>Informaci&oacute;n de lugares turisticos rapida, variada y confiable</p>          
+        </div>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand active" href={% url 'Portada' %}>LR TOUR</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="#">Lista de Lugares</a></li>
+                <li><a href="#">Sugerir Lugar</a></li>
+                <li><a href="#">Cuenta</a></li>
+            </ul>
+        </div>
+    </nav>
+ </div>
+    <form action="." method="post">
+    {% csrf_token %}
+    <div class="container">
+    <div class="form-group">
+        <label>Nombre del lugar:</label>
+   {{form.nombreDelLugar}}
+    </div>
+    <div class="form-group">
+        <label>Region:</label>
+   {{form.region}}
+    </div>
+    <div class="form-group">
+        <label>Ciudad:</label>
+   {{form.ciudad}}
+    </div>
+    <div class="form-group">
+        <label>Comuna:</label>
+   {{form.comuna}}
+    </div>
+    <div class="form-group">
+        <label>URL de Imagen del lugar:</label>
+   {{form.imagenDelLugar}}
+    </div>
+    <div class="form-group">
+        <label>&iquest;Por que cree usted que este lugar merece ser visitado?</label>
+   {{form.razonDeVisita}}
+    </div>
+    <button type="submit" class="btn-primary" value="Submit">Enviar</button>
+ </div>
+  </form>
+
+
+</body>
+</html>

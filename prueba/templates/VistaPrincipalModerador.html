@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Registrarse</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class ="container">
+        <div class="jumbotron" style="font-style:italic; background-color: aquamarine">
+           <h1>LR TOUR</h1>
+            <p>Informaci&oacute;n de lugares turisticos rapida, variada y confiable</p>          
+        </div>
+   </div>
+    <div class="container">
+    <div class="col-lg-offset-2">
+            <h1>Bienvenido {{usuario.username}}, seleccione una opcion</h1>
+    </div>
+    <div class="col-lg-offset-3">
+        <ul class="nav nav-pills nav-stacked">
+            <li class="alert-info"><a href="#"><h1>Administrar Lugares</h1></a></li>
+            <li class="alert-info"><a href="#"><h1>Administrar Reportes</h1></a></li>
+            <li class="alert-info"><a href="#"><h1>Administrar Sugerencias</h1></a></li>
+            <li class="alert-info"><a href="#"><h1>Administrar Usuario</h1></a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+    <form action="." method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-success" name="botonLogout">Logout</button>
+    </form>
+    </div>
+</div>
+</body>
+</html>
